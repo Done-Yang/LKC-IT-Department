@@ -441,7 +441,6 @@ def admin_add_sessionYear(request):
 
             return redirect(reverse('admin-sessionYear'))
         messages.info(request, 'Fill all the form!')
-    messages.info(request, 'Invalid form!')
     return render(request, 'school/admin_add_sessionYear.html', context={'form':form})
 
 @login_required(login_url='adminlogin')
