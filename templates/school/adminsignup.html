@@ -1,0 +1,199 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Inspiring Sign Up Page </title>
+<style>
+  .body-content {
+      padding-top: 10vh;
+  }
+  
+  .container-sgup {
+      width: 380px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      border: 2px solid rgba(255, 255, 255, 0.049);
+      border-radius: 15px;
+      background: #136a8a;
+      background: 
+        -webkit-linear-gradient(to right, #267871, #136a8a);
+      background: 
+        linear-gradient(to right, #267871, #136a8a);
+      box-shadow: 
+        0px 2px 10px rgba(0,0,0,0.2), 
+        0px 10px 20px rgba(0,0,0,0.3), 
+        0px 30px 60px 1px rgba(0,0,0,0.5);
+      padding: 50px;
+      margin-top: 3em;
+      margin-bottom: 30px;
+  }
+  
+  h2 {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .form-item {
+      margin: 5px;
+      padding-bottom: 10px;
+      display: flex;
+  }
+  
+  .form-item input {
+      width: 150px;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      color: black;
+      text-align: left;
+      margin: 0 5px;
+  }
+  
+  .form-item-email {
+      margin: 0 5px;
+      padding-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .form-item-email input {
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      color: black;
+      text-align: left;
+      margin: 0 5px;
+  }
+  
+  .form-item-password {
+      margin: 5px;
+      padding-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .form-item-password input {
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      color: black;
+      text-align: left;
+      margin: 5px 5px;
+  }
+  
+  .form-btns {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      padding: 10px 0;
+  }
+  
+  .form-btns button {
+      margin: auto;
+      font-size: 20px;
+      padding: 5px 15px;
+      border-radius: 15px;
+      color: rgb(75, 61, 61);
+      width: 280px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      text-decoration: none;
+      box-shadow: 0px 0px 0px 2px white;
+      transition: 0.5s;
+  }
+  
+  .form-btns button:disabled {
+      background: #8f8b85 !important;
+      color: rgb(131, 120, 120) !important;
+      cursor: not-allowed;
+  }
+  
+  .form-btns button:hover {
+      background: white;
+      color: dimgray;
+      transition: 0.5s;
+  }
+  
+  .options {
+      padding-top: 15px;
+      margin: auto;
+      color: white;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .options a {
+      font-size: 13px;
+      color: white;
+  }
+  
+  .options a:hover {
+      color: rgb(167, 165, 165);
+  }
+  
+  p {
+      text-align: center;
+      font-size: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+  }
+  input{
+    border: none;
+  }
+</style>
+</head>
+
+<body>
+  {% include 'school/navbar.html' %}
+
+    <div class="body-content">
+        <div class="container-sgup">
+            <h2>Add Admin</h2>
+            <div class="login-form">
+                <form action="">
+                    <div class="form-item">
+                        {% render_field form.first_name class="fname" placeholder="First Name" %}
+                        {% render_field form.last_name class="lname" placeholder="Last Name" %}
+                    </div>
+                    <div class="form-item">
+                      {% render_field form.birthday class="birthday" type="date" placeholder="Birth Day" %}
+                      {% render_field form.adress class="adress" placeholder="Adress" %}
+                    </div>
+                    <div class="form-item">
+                      {% render_field form.phone class="phone" placeholder="Phone" %}
+                      {% render_field form.username class="username" placeholder="User Name" %}
+                    </div>
+                    <div class="form-item-password">
+                      {% render_field form.password class="password" type="password" placeholder="Password" %}
+                      {% confirm class="confirm" type="password" placeholder="Confirm Password" %}
+                    </div>
+                    <div class="form-btns">
+                        <button class="signup" type="submit">Add</button>
+                        <div class="options">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  {% include 'school/footer.html' %}
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+{% extends 'school/adminbase.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: #00aeff;
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 3px solid #ced4da;
+      border-top: none;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: 3px solid #00aeff;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: none;
+      color: rgb(0, 0, 0);
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .btnSubmit:hover{
+      background-color: #00aeff;
+      color: #fff;
+      transition: 0.3s;
+    }
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<!------ signup page for teacher by admin(Mikealson Academy)  ---------->
+<form method="post">
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>Add Student</p>
+        {% if messages %}
+          <p class="warning">{{messages}}</p>
+        {% endif %}
+      </div>
+
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              {% render_field form.sessionYear class="form-control" placeholder="Session Year" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              {% render_field form.classificate class="form-control" placeholder="Classificate" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              {% render_field form.attendance class="form-control" placeholder="Attendance" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              {% render_field form.fee class="form-control" placeholder="Term Fee" %}
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btnSubmit">Add</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+{% endblock content %}

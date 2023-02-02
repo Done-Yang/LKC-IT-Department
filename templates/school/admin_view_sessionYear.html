@@ -1,0 +1,74 @@
+{% extends 'school/adminbase.html' %}
+
+{% block content %}
+
+<head>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+    .nav{
+      width: 100%;
+    }
+    .back {
+       float:left;
+       font-size: 45px;
+       margin-left: 30px;
+       color: #00aeff;
+       width: 30px;
+    }
+    .add:hover{
+      background-color: #00aeffc4;
+      color: rgba(255, 255, 255, 0.752);
+    }
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+
+</head>
+<div class="scrop">
+  <div class="nav">
+
+    <a href="{% url 'admin-sessionYear' %}" class="back">
+      <i class="fa fa-arrow-circle-left"></i>
+    </a>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h6 class="panel-title">{{sessions.sessionYear}}</h6>
+        </div>
+
+        <table class="table table-hover" id="dev-table">
+          <thead>
+
+            <tr>
+              <th>Classificate</th>
+              <th>Attendance</th>
+              <th>Fee</th>
+            </tr>
+          </thead>
+
+          <tr>
+            <td>{{sessions.classificate}}</td>
+            <td>{{sessions.attendance}}</td>
+            <td>{{sessions.fee}}</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}

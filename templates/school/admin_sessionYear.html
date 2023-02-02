@@ -1,0 +1,87 @@
+{% extends 'school/adminbase.html' %}
+
+{% block content %}
+
+<head>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+    .scrop{
+      display: block;
+    }
+    .nav{
+      width: 100%;
+    }
+    .add {
+       float:right;
+       font-size: 30px;
+       margin-right: 30px;
+       background-color: #00aeff;
+       color: white;
+       width: 50px;
+       text-align: center;
+    }
+    .add:hover{
+      background-color: #00aeffc4;
+      color: rgba(255, 255, 255, 0.752);
+    }
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+
+</head>
+<div class="scrop">
+  <div class="nav">
+
+    <a href="{% url 'admin-add-sessionYear' %}" class="add">
+      <i class="fas fa-plus-circle"></i>
+    </a>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h6 class="panel-title">Session Year</h6>
+        </div>
+
+        <table class="table table-hover" id="dev-table">
+          <thead>
+
+            <tr>
+              <th>Terms</th>
+              <th>Classificate</th>
+              <th>Attendance</th>
+              <th>Fee</th>
+            </tr>
+          </thead>
+
+          {% for session in sessions %}
+          <tr>
+            <td>{{ session.sessionYear }}</td>
+            <td>{{session.classificate}}</td>
+            <td>{{session.attendance}}</td>
+            <td>{{session.fee}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}
